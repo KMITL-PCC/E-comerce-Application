@@ -14,6 +14,8 @@ func main() {
 		return c.SendString("Hello, World!")
 	})
 
+	println("Server is running on http://localhost:3000")
+
 	// Start the server on port 3000
 	log.Fatal(app.Listen(":3000"))
 }
