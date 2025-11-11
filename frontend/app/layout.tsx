@@ -5,6 +5,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { ClerkProvider } from "@/components/clerk-provider";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,14 +29,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground flex min-h-svh flex-col antialiased`}
-      >
-        <Navbar />
-        <main className="my-8 flex-1">{children}</main>
-        <Footer />
-      </body>
-    </html>
+    <Suspense>
+      <ClerkProvider>
+        <html lang="en">
+          <body
+            className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground flex min-h-svh flex-col antialiased`}
+          >
+            <Navbar />
+            <main className="my-8 flex-1">{children}</main>
+            <Footer />
+          </body>
+        </html>
+      </ClerkProvider>
+    </Suspense>
   );
 }
