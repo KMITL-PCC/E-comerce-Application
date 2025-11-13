@@ -1,14 +1,8 @@
-import {
-  ChevronDown,
-  CircleUserRound,
-  Search,
-  ShoppingCart,
-} from "lucide-react";
+import { ChevronDown, Search, ShoppingCart } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "./ui/input";
@@ -16,7 +10,7 @@ import { Separator } from "./ui/separator";
 
 import Link from "next/link";
 import Logo from "./logo";
-
+import UserIcon from "./userIcon";
 const navigation = [
   {
     label: "Shop",
@@ -96,21 +90,7 @@ const Navbar = () => {
             <Link href="/cart">
               <ShoppingCart className="size-5" />
             </Link>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex cursor-pointer items-center gap-1">
-                <CircleUserRound className="size-5" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <Link href="/profile">Profile</Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <Link href="/logout">Logout</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <UserIcon />
           </div>
         </div>
       </nav>
